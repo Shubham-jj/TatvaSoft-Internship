@@ -7,7 +7,7 @@ import { Avatar } from "@mui/material";
 import LogoutIcon from "@mui/icons-material/Logout";
 
 export const Apple = () => {
-  const [name, setName] = useState("om");
+  const [name, setName] = useState("Shubham");
   const [email, setEmail] = useState("om@gmail.com");
   const [open, setOpen] = useState(false);
   const [anchorE1, setAnchorE1] = useState(null);
