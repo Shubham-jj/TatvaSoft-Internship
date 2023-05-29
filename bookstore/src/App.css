@@ -37,8 +37,16 @@
   }
 }
 
-.navbarStyle {
-  display: flex;
-  padding: 5px;
-  column-gap: 10px;
+.navbar-style{
+  padding:5;
+  display:flexbox;
+  column-gap:10;
+  margin: 100;
+  
+}
+
+.error{
+  position: absolute;
+  color: red;
+  font-size: .6rem;
 }
