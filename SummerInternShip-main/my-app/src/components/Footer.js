@@ -1,22 +1,32 @@
-import { Container, Stack, Typography } from "@mui/material";
-import React from "react";
-import logo from "../assets/tatvasoft_logo.png";
+import React from 'react';
+import {Link} from "react-router-dom";
+import siteLogo from "../assets/Tatvasoftlogo.svg";
+import '../css/footer.css';
 
-const Footer = () => {
-  return (
-    <Container>
-      <Stack
-        alignItems={"center"}
-        justifyContent={"center"}
-        style={{ height: 150, backgroundColor: "#F4F4F4" }}
-        spacing={1}
-      >
-        <img src={logo} alt="LOGO" height={45} />
-        <Typography variant="body2" color={"#929292"}>
-        </Typography>
-      </Stack>
-    </Container>
-  );
-};
+const Footer=()=>{
+    return(
+        <>
+        <div style={{marginBottom:'80px'}}></div>
+        <div className='footerWrapper'>
+            <footer>
+                <div className='mainDiv'>
+                <div className='container'>
+                <div className='text-center'>
+                    <div className='footerLogo'>
+                        <Link to='/' title='Logo'>
+                            <img src={siteLogo} alt='siteLogo' className='svgImg'/>
+                        </Link>
+                    </div>
+                    <p className='copyright-text'>
+                        &copy; 2015 Tatvasoft.com. All rights reserved
+                    </p>
+                </div>
 
+                </div>
+                </div>
+            </footer>
+        </div>
+        </>
+    );
+}
 export default Footer;

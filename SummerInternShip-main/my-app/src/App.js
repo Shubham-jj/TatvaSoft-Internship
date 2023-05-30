@@ -1,42 +1,53 @@
-import "./styles/App.css";
-import Navbar from "./components/Navbar";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import NotFound from "./components/NotFound";
-import Login from "./components/Login";
-import Register from "./components/Register";
-import Footer from "./components/Footer";
-import { ThemeProvider } from "@emotion/react";
-import { createTheme } from "@mui/material";
+import logo from './logo.svg';
+import './css/App.css';
+import HomePage from './Pages/HomePage';
+import Login from './Pages/Login';
+import Register from './Pages/Register';
+import Cart from './Pages/Cart';
+import NotFoundPage from './Pages/NotFoundPage';
+import globalStyles from './Components/Constants';
+import appStyle from './css/AppStyle.module.css';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Header from './Components/Header';
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: "#f14d54",
-    },
-    secondary: {
-      main: "#06D043",
-    },
-    customColor: {
-      main: "#F4F4F4",
-    },
-  },
-});
+
+
 function App() {
+  // const authcontext=useAuthContext();
+  // const Redirect=<Navigate to='/login'/>;
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <Router>
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-          <Footer />
-        </Router>
-      </ThemeProvider>
-    </>
-  );
+      
+      <ToastContainer />
+      <BrowserRouter>
+        {/* <div
+          // style={{...globalStyles.navbar}}
+          className={appStyle.navbar}
+        >
+          <Link to='/' style={{ marginLeft: 5 }} className='link'>Home</Link>
+          <Link to='/login' style={{ marginLeft: 10 }} className='link'>Login</Link>
+          <Link to='/register' style={{ marginLeft: 15 }} className='link'>Register Now</Link>
+          <Link to='/error' style={{ marginLeft: 20 }} className='link'>NotFoundPage</Link>
+        </div> */}
+        <Header />
+       
+        <Routes>
+          <Route path='/' element={<HomePage />}></Route>
+          <Route path='/login' element={<Login />}></Route>
+          <Route path='/register' element={<Register />}></Route>
+          <Route path='/cart' element={<Cart />}></Route>
+          <Route path='*' element={<NotFoundPage />}></Route>
+        </Routes>
+      </BrowserRouter>
+      
+    </>);
+
+
+
+
+
 }
 
 export default App;
