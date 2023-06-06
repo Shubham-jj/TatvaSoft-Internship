@@ -10,7 +10,6 @@ import * as Yup from "yup";
 import axios from "axios";
 import { toast } from 'react-toastify';
 import '../css/myStyle.css';
-import Footer from "../Components/Footer";
 const Register = () => {
     const [role, setRole] = useState('');
     const[roleId,setRoleId]=useState(0);
@@ -114,7 +113,7 @@ const Register = () => {
                                             <div className='label'>First Name* </div>
                                             <TextField
                                                 type='text'
-                                                placeholder="FirstName"
+                                                placeholder="First Name"
                                                 name="firstName"
                                                 style={{ width: '355px' }}
                                                 onBlur={handleBlur}
@@ -130,7 +129,7 @@ const Register = () => {
                                             <div className='label'>Last Name* </div>
                                             <TextField
                                                 type='text'
-                                                placeholder="LastName"
+                                                placeholder="Last Name"
                                                 name="lastName"
                                                 style={{ width: '355px' }}
                                                 onBlur={handleBlur}
@@ -239,7 +238,7 @@ const Register = () => {
 
                 </div>
             </div>
-            <Footer />
+         
 
 
         </>);

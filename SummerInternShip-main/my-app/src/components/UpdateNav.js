@@ -1,13 +1,15 @@
 import React from 'react';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Button } from '@mui/material';
-import {loginContext}  from '../contexts/LoginContext';
 import { toast } from 'react-toastify';
 import '../css/header.css';
+import { useAuthContext } from '../contexts/auth';
+
 const UpdateNav = () => {
-    const isLogin = useContext(loginContext);
+    const authcontext=useAuthContext();
+    const Navigate=useNavigate();
     const LinkStyle = {
         textDecoration: 'none',
         margin: '15px',
@@ -29,10 +31,9 @@ const UpdateNav = () => {
         marginTop:'4px'
     }
     const logoutEvent=()=>{
-        isLogin.setLogin(false);
-        toast.success('Logout Successfully')
+        authcontext.signOut();
     }
-    if (!isLogin.login) {
+    if (!authcontext.user.id) {
         return (
             <>
                  <div >
@@ -47,17 +48,21 @@ const UpdateNav = () => {
     else {
         return(
         <>
-                <div >
+                <div>
                     <Link to='/product' style={LinkStyle}>View Book</Link>
                     <span className='pipe'></span>
-                    <Link to='/edit' style={LinkStyle} >Edit Book</Link>
+                    <Link to='/add-book' style={LinkStyle} >Add Book</Link>
                     <span className='pipe'></span>
                     <Link to='/bookList' style={LinkStyle}>Book List</Link>
                     <span className='pipe'></span>
-                    <Link to='/register' style={LinkStyle} >Register</Link>
+                    <Link to='/user' style={LinkStyle}>User</Link>
+                    <span className='pipe'></span>
+                    <Link to='/update-profile' style={LinkStyle}>Update Profile</Link>
                     
-                </div>
-                <Button style={logoutbtn} onClick={logoutEvent}>Logout</Button>
+                    </div>
+                
+                <Button style={logoutbtn} onClick={logoutEvent} variant='contained'>Logout</Button>
+               
         </>
 
         );

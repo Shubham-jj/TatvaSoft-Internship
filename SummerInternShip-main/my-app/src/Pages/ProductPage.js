@@ -70,7 +70,7 @@ const ProductPage = () => {
       .then((res) => {
         toast.success("Record Deleted Successfully...");
         setOpen(false);
-        setFilters({ ...filters, pageIndex: 1 });
+        setFilters({ ...filters});
       });
 
   };
@@ -85,7 +85,7 @@ const ProductPage = () => {
     <div style={{ marginBottom: '45px' }}></div>
     <div className='searchContainer'>
       <input type='search' placeholder='search' className='productSearch'></input>
-      <button type='submit' className='productbtn' onClick={() => Navigate('/edit')}>Add Product</button>
+      <button type='submit' className='productbtn' onClick={() => Navigate('/add-book')}>Add Product</button>
     </div>
     <div style={{ marginBottom: '32px' }}></div>
     <div style={{ margin: 'auto', width: '80%' }}>
@@ -122,7 +122,7 @@ const ProductPage = () => {
                       variant="outlined"
                       disableElevation
                       onClick={() => {
-                        Navigate(`/edit`);
+                        Navigate('/edit-book');
                       }}
                     >
                       Edit
